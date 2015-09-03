@@ -1,0 +1,22 @@
+{
+  "name": "macfja/tracy-doctrine-sql",
+  "type": "library",
+  "keywords": ["Tracy", "Debugger", "Doctrine", "SQL", "Panel", "Bar"],
+  "description": "A Tracy panel for Doctrine SQL queries",
+  "authors": [
+    {
+      "name": "MacFJA"
+    }
+  ],
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "MacFJA\\Tracy\\": "lib/"
+    }
+  },
+  "require": {
+    "tracy/tracy": "~2",
+    "doctrine/orm": "~2",
+    "doctrine/dbal": "~2"
+  }
+}

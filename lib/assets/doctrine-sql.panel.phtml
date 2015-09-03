@@ -1,0 +1,35 @@
+<?php
+
+namespace MacFJA\Tracy;
+
+/**
+ * Debug Bar: panel "Doctrine SQL" template.
+ *
+ * @author  MacFJA
+ * @license MIT
+ * @package MacFJA\Tracy
+ *
+ * @var array $data
+ * @var DoctrineSql $this
+ */
+
+?>
+<h1>SQL Queries<?php if (!empty($this->name)) { echo ' &mdash; ' . $this->name; } ?></h1>
+<div class="tracy-inner tracy-DoctrineSql">
+    <table>
+        <tr>
+            <th>SQL</th>
+            <th>Params</th>
+            <th>Types</th>
+            <th>Time (ms)</th>
+        </tr>
+    <?php foreach ($data as $item): ?>
+        <tr>
+            <td><?php echo $item['sql'] ?></td>
+            <td><pre><?php echo $this->formatArrayData($item['params']) ?></pre></td>
+            <td><pre><?php echo $this->transformNumericType($this->formatArrayData($item['types'])) ?></pre></td>
+            <td><?php echo $item['executionMS'] ?></td>
+        </tr>
+    <?php endforeach ?>
+    </table>
+</div>
