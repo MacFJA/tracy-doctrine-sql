@@ -3,7 +3,7 @@
 namespace MacFJA\Tracy;
 
 use Doctrine\DBAL\Logging\DebugStack;
-use Doctrine\ORM\Configuration;
+use Doctrine\DBAL\Configuration;
 use Doctrine\ORM\EntityManagerInterface;
 use Tracy\Debugger;
 use Tracy\IBarPanel;
@@ -66,7 +66,7 @@ class DoctrineSql implements IBarPanel
      * @param EntityManagerInterface $entityManager The doctrine manager to watch
      */
     public static function init(EntityManagerInterface $entityManager, $name = '') {
-        Debugger::getBar()->addPanel(new static($entityManager->getConfiguration(), $name));
+        Debugger::getBar()->addPanel(new static($entityManager->getConnection()->getConfiguration(), $name));
     }
 
     protected function formatArrayData($data) {
